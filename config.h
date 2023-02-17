@@ -62,6 +62,7 @@ static double maxlatency = 33;
 /* frames per second st should at maximum draw to the screen */
 // static unsigned int xfps = 120;
 // static unsigned int actionfps = 30;
+//
 
 /*
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
@@ -156,6 +157,7 @@ static const char *colorname[] = {
     "#3f3f3f",
     "#dcdccc",
     "#aaaaaa",
+    "black", /* default background colour */
 };
 
 /*
