@@ -62,6 +62,7 @@ static void selpaste(const Arg *);
 static void zoom(const Arg *);
 static void zoomabs(const Arg *);
 static void zoomreset(const Arg *);
+static void zoomtoggle(const Arg *);
 static void ttysend(const Arg *);
 
 /* config.h for applying patches and the configuration. */
@@ -324,6 +325,19 @@ zoomreset(const Arg *arg)
 	if (defaultfontsize > 0) {
 		larg.f = defaultfontsize;
 		zoomabs(&larg);
+	}
+}
+
+void
+zoomtoggle(const Arg *arg)
+{
+	Arg larg;
+
+	if (usedfontsize != defaultfontsize) {
+		zoomreset(arg);
+	} else {
+		larg.f = defaultfontsize * (arg -> f == 0 ? 2.2565624 : arg -> f);
+		zoom(&larg);
 	}
 }
 
@@ -1526,8 +1540,8 @@ xdrawglyphfontspecs(const XftGlyphFontSpec *specs, Glyph base, int len, int x, i
 	/* Intelligent cleaning up of the borders. */
 	if (x == 0) {
 		xclear(0, (y == 0)? 0 : winy, borderpx,
-			winy + win.ch +
-			((winy + win.ch >= borderpx + win.th)? win.h : 0));
+			winy + win.ch
+			+ ((winy + win.ch >= borderpx + win.th)? win.h : 0));
 	}
 	if (winx + width >= borderpx + win.tw) {
 		xclear(winx + width, (y == 0)? 0 : winy, win.w,
