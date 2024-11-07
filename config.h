@@ -9,8 +9,12 @@
    Code:size=12:antialias=true:autohint=true;Liberation "
                     "Mono:pixelsize=12:antialias=true:autohint=true"; */
 // static char *font = "Liberation Mono:size=12:antialias=true:autohint=true";
-static char *font = "Fira Code:size=12:antialias=true:autohint=true";
-static int borderpx = 2;
+// static char *font = "Fira Code:size=12:antialias=true:autohint=true";
+// static char *font = "Hack:size=12:antialias=true:autohint=true";
+static char *font = "Victor Mono Nerd Font:size=12:antialias=true:autohint=true";
+static char *font2[] = { "FontAwesome:pixelsize=30:antialias=true:autohint=true" };
+// static int borderpx = 2;
+static int borderpx = 0;
 
 /*
  * What program is execed by st depends of these precedence rules:
